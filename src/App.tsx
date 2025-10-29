@@ -1,14 +1,18 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import TodoPage from "./pages/TodoPage";
 import About from "./pages/About";
 
 export default function App() {
+  // Récupère la localisation actuelle pour animer chaque changement de page
+  const location = useLocation();
+
   return (
     <>
       {/* 🌿 Menu de navigation */}
       <div className="flex justify-center p-2">
-        <ul className="menu menu-horizontal bg-base-200 rounded-box p-2 justify-center gap-2 mb-5">
+        <ul className="menu menu-horizontal bg-base-200 rounded-box p-2 justify-center gap-2 mb-5 shadow-md">
           {/* Accueil */}
           <li>
             <NavLink
@@ -97,12 +101,24 @@ export default function App() {
         </p>
       </div>
 
-      {/* 🧭 Définition des routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/todo" element={<TodoPage />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      {/* 🌈 Transitions de pages avec Framer Motion */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="p-4"
+        >
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/todo" element={<TodoPage />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
+
     </>
   );
 }
