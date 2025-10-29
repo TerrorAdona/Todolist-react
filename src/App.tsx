@@ -91,7 +91,7 @@ export default function App() {
       </div>
 
       {/* 🌸 Texte de bienvenue */}
-      <div className="text-center mb-8">
+      {/* <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-primary mb-2">
           Bienvenue sur ton espace React ✨
         </h1>
@@ -99,7 +99,7 @@ export default function App() {
           Navigue librement entre tes pages sans recharger la page — la magie du
           SPA (Single Page Application) 🌿
         </p>
-      </div>
+      </div> */}
 
       {/* 🌈 Transitions de pages avec Framer Motion */}
       <AnimatePresence mode="wait">
@@ -108,7 +108,7 @@ export default function App() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
           className="p-4"
         >
           <Routes location={location} key={location.pathname}>

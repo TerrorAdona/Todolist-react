@@ -1,8 +1,13 @@
 export default function Home() {
   return (
-    <div className="p-10 text-center">
-      <h1 className="text-3xl font-bold mb-4">Bienvenue sur ta ToDo List 🌱</h1>
-      <p className="text-lg">Gère tes tâches, organise tes priorités, et reste zen.</p>
-    </div>
+    <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-primary mb-2">
+          Bienvenue sur ton espace React ✨
+        </h1>
+        <p className="text-base text-gray-600">
+          Navigue librement entre tes pages sans recharger la page — la magie du
+          SPA (Single Page Application) 🌿
+        </p>
+      </div>
   );
 }
